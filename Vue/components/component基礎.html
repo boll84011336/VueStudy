@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+  <title>components基礎</title>
+</head>
+<body>
+
+  <div id="app">
+    <my-component></my-component>
+    <name></name>
+  </div>
+
+  <script>
+    // 基礎規則:component的名稱要都是小寫且用-隔開，要用的話，要宣告在new Vue之前
+    // 語法: 'component名稱'，接一個物件裡面放要顯示的template
+    Vue.component('my-component', {
+      template: '<div>My Component</div>'
+    });
+
+    //這邊示範local component寫法，只存在這個綁定的app才能用，不是全域。
+    //語法 :  components: {'key': template的物件 } =>'my-component':{template: '<div>My Component</div>'}
+    new Vue({
+      el:'#app',
+      // components: {
+      //   'my-component': {
+      //     template: '<div>My Component</div>'
+      //   }
+      // },
+      components: {
+        'name': {
+          template: `<h1>HELLO</h1>`
+        }
+      }
+    })
+
+    
+  </script>
+</body>
+</html>

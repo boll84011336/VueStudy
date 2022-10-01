@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: burlywood;
+}
+
+p {
+  color: royalblue;
+}
+
+nav {
+  background: #000;
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  padding: 6px 20px;
+  font-size: 16px;
+  transition: 0.5s;
+}
+
+nav a:hover {
+  background: #fa0;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 300px;
+      background-color: #f00;
+      border:  10px solid royalblue;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad reprehenderit dignissimos, qui deleniti omnis rem corrupti, blanditiis maiores iste dolor adipisci, exercitationem maxime molestiae laudantium suscipit autem amet ratione doloribus.
+  </div>
+</body>
+</html>
+
+<!-- box-sizing:  就是在控制盒模型的計算模式，看寬度指定給誰。
+  border-box => 把寬度值設定給邊框到邊框的尺寸 =>這個會自動幫你弄成300 (border padding會自動往內推，margin還是額外加上去的不會湊成300)
+  content-box => 把寬度指定給內容物，及文字寬度到哪就是哪 =>上面的例子 這個會是340 因為border padding 加起來
+
+不需要再自己計算 要300大小的盒子  border padding 要設多少  -->

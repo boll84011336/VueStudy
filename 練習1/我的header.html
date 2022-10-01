@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"> -->
+
+    <style>
+			html, body{
+				height: 100%
+			}
+			
+			.wrapper {
+				min-height: 100%;
+				width: 1440px;
+				margin: auto;				
+			}
+
+			.header {      
+				position: relative;				
+					/* margin: 10px;
+					border: 1px solid #aaa;
+					padding: 10px; */
+			}
+
+			.navbar {
+				display: flex;
+				justify-content: space-between;
+				position: absolute;
+				top:40px;
+				right: 100px;
+				left: 0;				
+				color: #fff;
+				padding: 6px 10px;
+				/* position: absolute;
+				top: 20px;
+				right: 30px; */
+				font-size: 40px;
+				border: 1px solid firebrick;
+				text-align: center;
+				line-height: 20px;
+			}
+
+			.title {
+				/* position:absolute; */
+				color: black;
+				font-size: 48px;
+				top:20px;
+				right: 1100px;
+			}
+
+			.bgimg {
+				position: relative;
+				top:30px;
+				border: 1px solid seagreen;	
+			}
+
+			.header img {
+				width: 100%;
+				vertical-align: bottom;
+			}
+
+
+			a {
+				text-decoration: none;
+				margin: 10px;
+				padding: 10px;
+				font-size: 20px;			
+			}
+
+       
+
+			/* footer */
+			.footer {
+				/* position: absolute;
+				bottom: 0; */
+				background-color: #FD975E;
+				text-align: center;
+				width: 100%;
+				height: 64px;
+				font-size: 24px;
+				color: #fff;
+				line-height: 64px;
+				margin-top: 20px;
+			}
+
+			/* block */
+			.sub_title {
+				font-size: 30px;
+				background-color: burlywood;
+				text-align: center;
+				padding: 5px;
+				margin-bottom: 5px;
+				color: #fff;
+				position: relative;
+			}
+
+			.more {
+				position: absolute;
+				right:10px;
+				top:2px;
+				color: white;
+				border: 1px solid wheat;
+				border-radius: 10px;
+				background-color: rgb(169, 207, 88);
+				font-size: 18px;
+				text-align: center;
+				padding: 5px;
+				width: 90px;	
+			}
+
+			.block1 {
+				display: flex;
+				width: 960px;
+				margin: auto;
+			}
+
+			.card1 {
+				width: 300px;
+				margin: 10px;
+				border: 1px solid #aaa;
+				padding: 10px;
+				margin-bottom: 80px;
+			}
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+			<!-- header -->
+			<div class="header">
+				  <img class="bgimg" src="Rectangle 24.png" height="80px" alt="">
+					<img src="Rectangle 2.png" alt="">
+					<nav class="navbar">
+						<div class="title">Taiwan</div>
+						<div class="list">
+								<a href="">美食地圖</a>
+								<a href="">住宿推薦</a>
+								<a href="">景點推薦</a>
+						</div>
+					</nav>           
+			</div>
+			<!-- header -->
+
+			<!-- main-content -->
+			<div class="main-content">
+				<div class="sub_title">推薦美食
+					<button class="more">查看更多</button>
+				</div>
+				<div class="block1">
+					<div class="card1">
+						<img src="http://picsum.photos/300/200/?random=1" alt="">
+						<h2>2021台北燈節</h2>
+						<p>台北市萬華區</p>
+						<p>2021/12/17 ~ 2021/12/26</p>
+					</div>
+					<div class="card1">
+						<img src="http://picsum.photos/300/200/?random=2" alt="">
+						<h2>2021台北燈節</h2>
+						<p>台北市萬華區</p>
+						<p>2021/12/17 ~ 2021/12/26</p>
+					</div>
+					<div class="card1">
+						<img src="http://picsum.photos/300/200/?random=3" alt="">
+						<h2>2021台北燈節</h2>
+						<p>台北市萬華區</p>
+						<p>2021/12/17 ~ 2021/12/26</p>
+					</div>
+				</div>
+
+				<div class="sub_title">推薦景點</div>
+				<div class="block1">
+					<div class="card1">
+						<img src="http://picsum.photos/300/200/?random=4" alt="">
+						<h2>2021台北燈節</h2>
+						<p>台北市萬華區</p>
+						<p>2021/12/17 ~ 2021/12/26</p>
+					</div>
+					<div class="card1">
+						<img src="http://picsum.photos/300/200/?random=5" alt="">
+						<h2>2021台北燈節</h2>
+						<p>台北市萬華區</p>
+						<p>2021/12/17 ~ 2021/12/26</p>
+					</div>
+					<div class="card1">
+						<img src="http://picsum.photos/300/200/?random=6" alt="">
+						<h2>2021台北燈節</h2>
+						<p>台北市萬華區</p>
+						<p>2021/12/17 ~ 2021/12/26</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- 第三塊 -->
+			<div class="sub_title">住宿推薦</div>
+				<div class="block1">
+					<div class="card1">
+						<img src="http://picsum.photos/300/200/?random=1" alt="">
+						<h2>2021台北燈節</h2>
+						<p>台北市萬華區</p>
+						<p>2021/12/17 ~ 2021/12/26</p>
+					</div>
+					<div class="card1">
+						<img src="http://picsum.photos/300/200/?random=1" alt="">
+						<h2>2021台北燈節</h2>
+						<p>台北市萬華區</p>
+						<p>2021/12/17 ~ 2021/12/26</p>
+					</div>
+					<div class="card1">
+						<img src="http://picsum.photos/300/200/?random=1" alt="">
+						<h2>2021台北燈節</h2>
+						<p>台北市萬華區</p>
+						<p>2021/12/17 ~ 2021/12/26</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- footer -->
+			<footer class="footer">TAIWAN 台灣旅遊</footer>
+			<!-- footer -->
+		</div>
+</body>
+</html>

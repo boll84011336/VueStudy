@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+  <title>components解析</title>
+</head>
+<body>
+  <!-- 不能直接在這邊放select 是因為，select裡面必須要是option。 
+  我們在裡面直接放 component，他會判別語法不正確，而不顯示
+  因此我們把他拉出來寫在new Vue裡面 掛一個template，以取代這邊的HTML-->
+  <div id="app">
+    
+  </div>
+
+  <script>
+    Vue.component('my-component', {
+      template: '<option>Hello</option>'
+    });
+
+    new Vue({
+      el:'#app',
+      template: 
+        '<select><my-component></my-component></select>'
+    })
+
+    
+  </script>
+</body>
+</html>

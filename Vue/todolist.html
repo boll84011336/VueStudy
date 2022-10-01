@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div>
+      <input type="text" v-model="text"/>
+      <button @click="add">add</button>
+    </div>
+   <ul>
+    <li v-for="(item, index) in items" v-on:click="removeItem(index)">{{item}}</li>
+   </ul>
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app',
+      data: {
+        text:'',
+        items: [
+          '1',
+          '2',
+          '3',
+        ],
+      },
+      methods: {
+        add() {
+          this.items.push(this.text);
+          this.text = '';
+        },
+
+        removeItem(index) {
+          this.items.splice(index,1)
+        }
+      }
+      
+    })
+  </script>
+</body>
+</html>

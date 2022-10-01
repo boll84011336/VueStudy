@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+  <title>計算屬性</title>
+</head>
+<body>
+  <div id="app">
+    <input type="number" v-model="a"/>
+    <input type="number" v-model="b"/>
+    =
+    <span>{{total}}</span>
+    <br>
+    {{a}} + {{b}} = {{total}}
+  </div>
+
+  <script>
+    const data = {
+      a: 1,
+      b: 2,
+    }
+
+    new Vue({
+      el:'#app',
+      data: {
+        a:0,
+        b:0
+      },
+
+      //跟methods 很像，只是他一定要有return 。 parseInt(this.b,10) 表示十進位
+      computed: {
+        total() {
+          return parseInt(this.a,10) + parseInt(this.b,10)
+        }
+      }
+      //這邊會去監聽a b的變動 然後呼叫total 這個func
+    })
+
+    
+  </script>
+</body>
+</html>

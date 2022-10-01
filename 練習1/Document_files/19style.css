@@ -1,0 +1,176 @@
+.header {
+    display: flex;
+    padding: 6px 10px;
+    background-color: #000;
+}
+
+.header .logo {
+    line-height: 52px;
+    font-size: 24px;
+}
+
+.header nav {
+    text-align: right;
+    width: 100%;
+    
+}
+
+.header nav a {
+    display: inline-block; /* 設置這個才能動padding */
+    line-height: 52px; /* 文字置中，算Height總共多高就設置多高 */
+    text-decoration: none;
+    font-size: 24px;
+    color: #fff;
+    padding: 0 10px;			
+}
+
+.header nav a:hover {
+    background-color: #fa0;
+}
+
+/* 圖片滿版 */
+.banner img {
+    width: 100%;
+}
+
+/* 選單橫排 */
+.path {
+    display: flex;
+}
+
+.path li {
+    padding: 6px 8px;
+    position: relative;
+}
+
+path li a { 
+    color: #aaa;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.path li + li::before {
+    content: "/";
+    color: black;
+    position: absolute;
+    left: 0;
+}
+
+.item h3 {
+    font-size: 36px;
+    padding: 0 0 30px;
+}
+
+.wrap {
+width: 960px;
+margin: auto;
+}
+
+.about .wrap{
+display: flex;
+}
+
+.about .wrap .item{
+    width: 300px;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.about .wrap .item img{
+    border-radius: 50%; 
+/* 圓形 */
+}
+
+.about > h2 {
+    text-align: center; 
+    /*一開始h2被div包著(後來拿掉了)， text-align: center;沒置中是因為wrap被設置了flex，所以把寬度100%撐開他就可以置中 */
+    width: 960px;
+    margin: auto;
+    font-size: 42px;
+    padding: 20px 0;
+}
+
+.about > p {
+    width: 660px;
+    margin: auto;
+    padding: 0px 0 40px;
+    text-align: center;
+}
+
+.product {
+    background-color: #ccc;
+}
+
+.product .wrap {
+    display: flex;
+}
+
+.product .item {
+    width: 50%;
+}
+
+.product .item .img {
+    width: 100%;
+    vertical-align: bottom;
+}
+
+.product .pic {
+    width: 50%;
+}
+
+.product .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.service {
+padding: 40px 0;
+background-color: #ffa;
+}
+
+.service > h2 { 
+width: 960px;
+margin: auto;
+text-align: center;
+font-size: 42px;
+padding: 20px 0; 
+}
+
+.service > p { 
+width: 960px;
+margin: auto;
+text-align: center;
+padding-bottom: 40px;
+}
+
+.service .wrap {
+display: flex;
+}
+
+.service .item { 
+margin: 0 10px;
+width: 300px;
+text-align: center;
+}
+
+.service .item h3{ 
+
+}
+
+.service .item p{ 
+
+}
+
+.service .item img{ 
+width: 100%;
+}
+
+.footer {
+    text-align: center;
+    background-color: #000;
+    color: #888;
+    padding: 0 20px;
+}

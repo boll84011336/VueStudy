@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        .wrap {
+          width: 960px;
+          display: flex;
+          margin: auto;
+        }
+
+        .item {
+          margin: 0 10px 5px;
+          width: 100%; /*決定這個div多寬，上層960，這層把剩下空間填滿*/
+            
+        }
+
+        .item img {
+          width: 100%; /*上面空間撐開填滿，讓圖片也撐開填滿*/
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+       <div class="item">
+        <img src="http://picsum.photos/300/200/?random=1" alt="">
+       </div>
+       <div class="item">
+        <img src="http://picsum.photos/300/200/?random=2" alt="">
+       </div>
+    </div>
+    <div class="wrap">
+        <div class="item">
+            <img src="http://picsum.photos/300/200/?random=3" alt="">
+        </div>
+        <div class="item">
+            <img src="http://picsum.photos/300/200/?random=15" alt="">
+        </div>
+        <div class="item">
+            <img src="http://picsum.photos/300/200/?random=4" alt="">
+        </div>
+    </div>
+</body>
+</html>
+<!-- 設置display: flex; 就代表將底下的子元素 變成flex item 而且預設是橫排-->

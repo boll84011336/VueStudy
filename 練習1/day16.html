@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        body {
+            padding-top: 70px;
+        }
+        nav {
+            background-color: #000;
+            text-align: center;
+            opacity: .6;
+            position: fixed;
+            top:0;
+            width: 100%;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px 20px;
+        }                                                                                                                                                               
+        .amos {
+            width: 300px;
+            height: 400px;
+            background-color: #aaa;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            margin: auto; /*垂直致中 top、bottom各設置0*/
+            right: 0;/*水平置中 left、right各設置0*/
+            left: 0; 
+
+            /*依據視窗定位(永遠固定在視窗範圍)， 脫離原來的定位點，自己獨立一層，會浮起來鎖在同樣的位置，不管怎麼捲卷軸他離視窗的上下左右都是固定的 
+            從資料當中抽離，會蓋住其他東西
+            設定top 0 =>就會距離視窗上方0px 會貼在上面 適用於選單、導覽列、廣告、回到上方*/
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="">link</a>
+        <a href="">link</a>
+        <a href="">link</a>
+        <a href="">link</a>
+        <a href="">link</a>
+        <a href="">link</a>
+    </nav>
+    <p class="item">一Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non? Debitis, 
+        excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis necessitatibus nihil!</p>
+    <p class="item">二Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non?
+            Debitis, excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis 
+            necessitatibus nihil!</p>
+ 
+    <p class="item">一Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non? Debitis, 
+        excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis necessitatibus nihil!</p>
+    <p class="item">二Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non?
+            Debitis, excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis 
+            necessitatibus nihil!</p>
+    <p class="item">一Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non? Debitis, 
+        excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis necessitatibus nihil!</p>
+    <p class="item">二Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non?
+            Debitis, excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis 
+            necessitatibus nihil!</p>    
+    <p class="item">一Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non? Debitis, 
+        excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis necessitatibus nihil!</p>
+    <p class="item">二Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non?
+            Debitis, excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis 
+            necessitatibus nihil!</p>
+            
+    <div class="amos">amos</div>
+
+    <p class="item">一Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non? Debitis, 
+        excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis necessitatibus nihil!</p>
+    <p class="item">二Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non?
+            Debitis, excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis 
+            necessitatibus nihil!</p>
+    <p class="item">一Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non? Debitis, 
+        excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis necessitatibus nihil!</p>
+    <p class="item">二Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non?
+            Debitis, excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis 
+            necessitatibus nihil!</p>
+    <p class="item">一Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non? Debitis, 
+        excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis necessitatibus nihil!</p>
+    <p class="item">二Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non?
+            Debitis, excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis 
+            necessitatibus nihil!</p>    
+    <p class="item">一Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non? Debitis, 
+        excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis necessitatibus nihil!</p>
+    <p class="item">二Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non?
+            Debitis, excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis 
+            necessitatibus nihil!</p>
+
+    <p class="item">一Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non? Debitis, 
+        excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis necessitatibus nihil!</p>
+    <p class="item">二Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non?
+            Debitis, excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis 
+            necessitatibus nihil!</p>
+    <p class="item">一Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non? Debitis, 
+        excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis necessitatibus nihil!</p>
+    <p class="item">二Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non?
+            Debitis, excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis 
+            necessitatibus nihil!</p>
+    <p class="item">一Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non? Debitis, 
+        excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis necessitatibus nihil!</p>
+    <p class="item">二Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non?
+            Debitis, excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis 
+            necessitatibus nihil!</p>
+    <p class="item">一Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non? Debitis, 
+        excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis necessitatibus nihil!</p>
+    <p class="item">二Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non?
+            Debitis, excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis 
+            necessitatibus nihil!</p>
+    <p class="item">一Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non? Debitis, 
+        excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis necessitatibus nihil!</p>
+    <p class="item">二Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non?
+            Debitis, excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis 
+            necessitatibus nihil!</p>    
+    <p class="item">一Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non? Debitis, 
+        excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis necessitatibus nihil!</p>
+    <p class="item">二Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non?
+            Debitis, excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis 
+            necessitatibus nihil!</p>
+
+    <p class="item">一Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non? Debitis, 
+        excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis necessitatibus nihil!</p>
+    <p class="item">二Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non?
+            Debitis, excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis 
+            necessitatibus nihil!</p>
+    <p class="item">一Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non? Debitis, 
+        excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis necessitatibus nihil!</p>
+    <p class="item">二Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis omnis optio nam non?
+            Debitis, excepturi! Odit nesciunt minima quaerat ipsum magnam quo nam, excepturi, eius fugiat distinctio reiciendis 
+            necessitatibus nihil!</p>
+  
+</body>
+</html>
+<!-- 設置display: flex; 就代表將底下的子元素 變成flex item 而且預設是橫排-->

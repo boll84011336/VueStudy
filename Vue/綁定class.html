@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+  <title>計算屬性</title>
+</head>
+<body>
+  <div id="app">
+   <h1 :style="h1Style">Hello</h1>
+   <button @click="Shrink">Shrink</button>
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app',
+      data: {
+        size:40
+      },
+      //觸發methods之後會重新計算computed然後重新render
+      methods: {
+        Shrink() {
+          this.size --
+        }
+      },
+ 
+      computed: {
+        h1Style() {
+          return {
+            fontSize: `${this.size}px`
+          }
+        }
+      }
+    })
+
+    
+  </script>
+  <style>
+    #app {
+      text-align: center;
+    }
+  </style>
+</body>
+</html>

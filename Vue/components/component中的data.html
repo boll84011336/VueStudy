@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+  <title>components解析</title>
+</head>
+<body>
+  <!-- 不能直接在這邊放select 是因為，select裡面必須要是option。 
+  我們在裡面直接放 component，他會判別語法不正確，而不顯示
+  因此我們把他拉出來寫在new Vue裡面 掛一個template，以取代這邊的HTML
+  注意  <counter></counter> 必須是一對，不然會有識別錯誤的問題，不知道他們是兩組component。
+  -->
+  <div id="app">
+    <counter></counter>
+    <counter></counter>
+  </div>
+
+  <script>
+    // 這邊的data必須是func並且return，因為要讓每個組件能重複使用
+    Vue.component('counter', {
+      data(){
+        return {
+          count: 0,
+        };
+      },
+      template: `
+      <div><h1>{{count}}</h1>
+        <button @click="count+=1">+1</button>
+      </div>
+      `     
+    });
+
+    new Vue({
+      el:'#app',
+    })
+
+    
+  </script>
+</body>
+</html>

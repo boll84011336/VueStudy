@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+  <title>雙向綁定</title>
+</head>
+<body>
+  <div id="app">
+    {{a+b}}
+  </div>
+
+  <script>
+    const data = {
+      a: 1,
+      b: 2,
+    }
+
+    new Vue({
+      el:'#app',
+      data,
+      //data: data 
+    })
+
+    //可以直接把data原地宣告，也可以從外部來。
+  </script>
+</body>
+</html>

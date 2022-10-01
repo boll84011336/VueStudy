@@ -1,0 +1,125 @@
+h2 {
+    font-size: 36px;
+}
+
+.about, .service { 
+    text-align: center;
+}
+
+.about > p {
+    width: 660px;
+    margin: auto;
+    padding: 0px 0 40px;
+}
+
+.wrap {
+    display: flex;
+    width: 960px;
+    margin: auto;
+}
+    
+
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.about .wrap .item {
+    width: 300px;
+    margin: 0 20px;
+}
+
+.about .wrap .item img {
+    border-radius: 50%;
+}
+
+/* 產品開始 */
+.product {
+    background-color: #ccc;
+}
+
+
+
+.product .item {
+    width: 50%;
+    border: 1px solid salmon;
+}
+
+.product .item .img {
+    width: 100%;
+    vertical-align: bottom;
+}
+
+.product .pic {
+    border: 1px solid salmon;
+}
+ 
+/*.product .item .text 代表底下一層的元素所以會抓不到同層的text
+.product  .text 這樣才抓的到 */
+
+.product .text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; /*橫軸呈現方向*/
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* server */
+/* .service {
+    padding: 20px 0;
+    background-color: #ffa;
+}
+
+.service > h2 {
+    margin-top: 25px;
+}
+
+.service > p {
+    width: 960px;
+    margin: auto;
+    padding-bottom: 40px;
+}
+
+.service .item { 
+    margin: 0 10px;
+    width: 300px;
+    text-align: center;
+    border: 3px solid teal;
+}*/
+
+
+
+.service > h2 {
+    margin-top: 25px;
+}
+
+.service {
+    padding: 20px 0;
+    background-color: #ffa;
+}
+
+/* 寬度設置，圖就變小? */
+.service > p {
+    width: 660px;
+    margin: auto;
+    padding: 0px 0 40px;
+}
+.service .item {
+    width: 300px;
+    margin: 0 10px;
+    text-align: center;
+    border: 3px solid teal;
+}
+.service .item img{ 
+    width: 100%;
+} 
+
+
+
+
+
+
+
+
