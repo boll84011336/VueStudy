@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,26 +8,49 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
   <title>components解析</title>
 </head>
-<body>
-  <!-- 不能直接在這邊放select 是因為，select裡面必須要是option。 
-  我們在裡面直接放 component，他會判別語法不正確，而不顯示
-  因此我們把他拉出來寫在new Vue裡面 掛一個template，以取代這邊的HTML-->
-  <div id="app">
-    
-  </div>
 
+<body>
+  <!--使用情境: 後臺表單切換 資料不消失 -->
+  <div id="app">
+    <button @click="content='lessons'">Lessons</button>
+    <button @click="content='apply'">Apply</button>
+    <br>
+    <keep-alive>
+      <component :is="content"></component>
+    </keep-alive>
+  </div>
+  <!-- 使用component這組件 綁定data裡面的屬性 動態切換組件 
+    :is這方法可以指定到要切換的component名稱 -->
   <script>
-    Vue.component('my-component', {
-      template: '<option>Hello</option>'
+    Vue.component('apply', {
+      template: `
+        <form>
+          <textarea></textarea>
+          <br>
+          <button>Submit</button>
+        </form>
+      `,
+    });
+
+    Vue.component('lessons', {
+      template: `
+        <ul>
+          <li>Vue課程</li>
+          <li>React課程</li>
+          <li>Angular課程</li>
+        </ul>
+      `,
     });
 
     new Vue({
-      el:'#app',
-      template: 
-        '<select><my-component></my-component></select>'
+      el: '#app',
+      data: {
+        content: 'lessons', //這邊會給上面使用 is會去綁定
+      }
     })
 
-    
+
   </script>
 </body>
+
 </html>
