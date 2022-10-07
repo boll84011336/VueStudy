@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+  <title>axios會員登入功能</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <button @click="content='login-form'">Login-Form</button>
+      <button @click="content='user-check'">User-Check</button>
+    </div>
+    <hr>
+    <keep-alive>
+      <component :is="content"></component>
+    </keep-alive>
+  </div>
+  <script>
+    /*
+      1.建立login-form component 裡面要有form(帳密 送出按鈕)
+      2. data 的資料 記得要用return
+      3. API建立 跟打POST 出去之後發生的事情 => submit事件、 loggedUser 把這個存起來用response.data.name存
+      4. 如果輸入錯誤 錯誤訊息
+      5. 如果帳號或密碼重新輸入 錯誤訊息要消失。(watch)
+      6. 按下送出時 disable (即輸入框反灰不給輸入) => loading效果。 綁定disable事件 true false決定是否顯示
+      7. 成功登入的話 form消失 ，加div在外層 並且用判斷式v-if、v-else。
+    */
+  </script>
+  <script>
+    Vue.component('user-check', {
+      data() {
+        return {
+          username: '',
+          exists: false,
+        };
+      },
+      methods: {
+        submit() {
+          axios.get(`${API}/exists/${this.username}`)
+          .then(response => {
+            this.exists = response.data.exists;
+          })
+        }
+      },
+      watch: {
+        username() {
+          this.submitDebounced();
+        }
+      },
+      created(){
+        this.submitDebounced = _.debounce(this.submit, 200);
+      },
+      template: `
+        <div>
+          <label>Username</label>
+          <input type="text" v-model="username">
+          <br>
+          <button @click="submit">Submit</button>
+          <br>
+          <span>{{exists}}</span>
+        </div>
+      `,
+    });
+    const API = 'https://login-backend-scars377.c9users.io';
+
+    //這個component裡面要用哪些資料，data裡面就要宣告哪些。
+    Vue.component('login-form', {
+      data() {
+        return {
+          username: '',
+          password: '',
+          loggedUser: null,
+          error: '',
+          loading: false,
+        }
+      },
+      methods: {
+        submit() {
+          this.loading = true;
+          axios.post(`${API}/login`, {
+            username: this.username,
+            password: this.password          
+          })
+          .then(response => {
+            this.loading = false;
+            if(response.data.success) {
+              this.loggedUser = response.data.name
+            } else {
+              this.error = 'Incorrect username/password'
+            }
+          })
+        }
+      },
+      //當帳號或密碼重新輸入，錯誤提示消失，不停留
+      watch: {
+        username() {
+          this.error = '';
+        },
+        password() {
+          this.error = '';
+        }
+      },
+      //這邊的=submit，是上面的methods
+      template: `
+        <div>
+          <h1 v-if="loggedUser">Welcome! {{loggedUser}}</h1>
+          <form v-else @submit.prevent="submit">
+            <label>Username</label>
+            <input type="text" v-model="username" :disabled="loading">
+            <br>
+            <label>Password</label> 
+            <input type="password" v-model="password" :disabled="loading">
+            <br>
+            <button type="submit" :disabled="loading">Submit</button>
+            <span v-if="error">{{error}}</span>
+          </form>
+        </div>
+      `,
+    });
+
+    new Vue({
+      el: '#app',
+      data: {
+        content: 'login-form'
+      }
+    })
+
+
+  </script>
+</body>
+
+</html>
