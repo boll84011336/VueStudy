@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+  <title>components解析</title>
+</head>
+<!-- 使用情境:SPA換頁 -->
+
+<body>
+  <div id="app">
+    <button @click="content='lessons'">Lessons</button>
+    <button @click="content='apply'">Apply</button>
+    <br>
+    <component :is="content"></component>
+  </div>
+  <!-- 使用component這組件 綁定data裡面的屬性 動態切換組件 
+    :is這方法可以指定到要切換的component名稱 -->
+  <script>
+    Vue.component('apply', {
+      template: `
+        <form>
+          <textarea></textarea>
+          <br>
+          <button>Submit</button>
+        </form>
+      `,
+    });
+
+    Vue.component('lessons', {
+      template: `
+        <ul>
+          <li>Vue課程</li>
+          <li>React課程</li>
+          <li>Angular課程</li>
+        </ul>
+      `,
+    });
+
+    new Vue({
+      el: '#app',
+      data: {
+        content: 'lessons', //這邊會給上面使用 is會去綁定
+      }
+    })
+
+
+  </script>
+</body>
+
+</html>

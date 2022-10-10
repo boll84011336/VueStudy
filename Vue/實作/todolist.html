@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+  <title>todo</title>
+</head>
+
+<body>
+  <div id="app">
+    <todo-list></todo-list>
+  </div>
+
+  <script>
+    Vue.component('todo-item', {
+      props: ['label'],
+      template: `
+        <li>{{label}}</li>
+      `
+    });
+
+    //input框及表單
+    Vue.component('todo-input', {
+      data() {
+        return {
+          text: '',
+        };
+      },
+      methods: {
+        //emit => (自訂義事件名稱,要帶的值)
+        submit() {
+          this.$emit('input', this.text);
+          this.text = ''
+        }
+      },
+      template: `
+        <form @submit.prevent="submit">
+          <input type="text" v-model="text"/>
+          <button type="submit">Submit</button>
+        </form>
+      `,
+    });
+
+    //由輸入框跟item組成 input這邊必須跟emit定義的事件名稱一樣， addTodo(text) 這邊的text是input事件傳的參數
+    Vue.component('todo-list', {
+      data() {
+        return {
+          todos: ['a', 'b', 'c'],
+        };
+      },
+      methods: {
+        addTodo(text) {
+          this.todos.push(text);
+        },
+      },
+      template: `
+        <div class="todo">
+          <todo-input @input="addTodo"></todo-input>
+          <ul>
+            <todo-item v-for="todo in todos" :label="todo"></todo-item>
+          </ul>
+        </div>
+      `,
+    });
+
+    new Vue({
+      el: '#app',
+      data: {
+        password: '',
+      },
+    })
+
+
+
+  </script>
+  <style>
+    .todo {
+      width: 80%;
+      margin: 0 auto;
+    }
+  </style>
+</body>
+
+</html>
