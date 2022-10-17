@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+  <title>雙向綁定</title>
+</head>
+<body>
+  <!-- 要綁定value 可以用index的方式，給他指定所要的value，然後字一樣顯示中文。 
+  如此一來 就有<option value="0">Jan</option> 這樣的東西出現 我們也可以自己加1-->
+  <div id="app">
+   <select>
+    <option v-for="(month, index) in months" :value="index+1">{{month}}</option>
+  </select>
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app',
+      data: {
+        months: [
+          'Jan','Feb','Mar','Apr','May','Jun'
+        ]
+      },
+    })
+  </script>
+</body>
+</html>

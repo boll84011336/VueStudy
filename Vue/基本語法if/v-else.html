@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+  <title>雙向綁定</title>
+</head>
+<body>
+  <!-- v-if 是依靠data裡面的屬性，去看屬性是true還是false，然後再顯示與否，
+  是直接顯示整個元素不是display 或是 visible。
+  v-else一定要接在if後面 不然無效，中間不能穿插東西-->
+  <div id="app"> 
+    <input type="checkbox" v-model="checkbox1">
+    <h1 v-if="checkbox1">跳樓大拍賣</h1> <!-- true顯示 -->
+    <h1 v-else>BOSS不在家</h1>
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app',
+      data: {
+        checkbox1: false,
+      }
+    })
+
+  </script>
+</body>
+</html>

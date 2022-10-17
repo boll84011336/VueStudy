@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+  <title>雙向綁定</title>
+</head>
+<body>
+  <!-- 要綁定value 可以用index的方式，給他指定所要的value，然後字一樣顯示中文。 
+  如此一來 就有<option value="0">Jan</option> 這樣的東西出現 我們也可以自己加1-->
+  <div id="app">
+   <select>
+    <div v-for="value in me">{{value}}</div>
+  </select>
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app',
+      data:{
+        me: {
+          name: '姚偉楊',
+          id: 'scars',
+          age: 22,
+          password: '1234',
+        }
+      },
+    })
+
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+  <title>雙向綁定</title>
+</head>
+<body>
+  <!-- 物件也可以用這種vfor的方式，但要注意，他渲染的順序不一定會照著宣告，所以建議用陣列顯示-->
+  <div id="app">
+    <div v-for="(value, key) in me">{{key}} - {{value}}</div>
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app',
+      data:{
+        me: {
+          name: '姚偉楊',
+          id: 'scars',
+          age: 22,
+          password: '1234',
+          18:"買房"
+        }
+      },
+    })
+  </script>
+</body>
+</html>

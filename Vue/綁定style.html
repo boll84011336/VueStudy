@@ -28,18 +28,18 @@
    
       computed: {
         btnClass() {
-          if(this.text.length === 0) {
-            return 'submit disabled'
-          } 
-          else {
-            return 'submit'
-          }
-          //this.text.length === 0 ? 'submit disabled': 'submit'
+          // if(this.text.length === 0) {
+          //   return 'submit disabled'
+          // } 
+          // else {
+          //   return 'submit'
+          // }
+          return this.text.length === 0 ? 'submit disabled': 'submit'
           // 第二種寫法 物件
-          return {
-            submit: true,
-            disabled: this.text.length === 0 //true
-          }
+          // return {
+          //   submit: true,
+          //   disabled: this.text.length === 0 //true
+          // }
         }
       }
  

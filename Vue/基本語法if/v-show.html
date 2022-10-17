@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+  <title>雙向綁定</title>
+</head>
+<body>
+  <!-- v-show 是用display:none 。
+  v-show 不能跟template一起用-->
+  <div id="app"> 
+    <input type="checkbox" v-model="checkbox1">
+    <input type="checkbox" v-model="checkbox2">
+
+    <template v-show="checkbox1">
+      <h1>跳樓大拍賣</h1> <!-- 不成立 因為他沒辦法判別要顯示哪個，v-if才能這樣用 -->
+      <h1>跳樓大拍賣</h1>
+      <h1>跳樓大拍賣</h1>
+    </template>
+    <h1 v-show="checkbox2" style="color: skyblue">跳樓大拍賣</h1> <!--正確用法-->
+  </div>
+
+  <script>
+    new Vue({
+      el:'#app',
+      data: {
+        checkbox1: false,
+        checkbox2: false,
+      }
+    })
+
+  </script>
+</body>
+</html>
+
+<style>
+  #app {
+    text-align: center;
+  }
+</style>
