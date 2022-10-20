@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+  <title>雙向綁定</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="num in nums">{{num}}</li>
+    </ul>
+    <button @click="org">Original</button>
+    <button @click="sort">Sort</button>
+  </div>
+
+  <script>
+    const orgNums = [5,2,1,6,8]
+    new Vue({
+      el:'#app',
+      data: {
+        nums: orgNums,
+      },
+      methods: {
+        org(){
+          this.nums = orgNums;
+        },
+        sort() {
+          this.nums.sort()
+          console.log(this.nums)
+          console.log("orgNums",orgNums)
+
+          //slice是拷貝一個陣列，如此一來就可以讓sort執行的時候不動到原本的陣列了
+          //錯誤範例 this.nums =  orgNums.sort();
+          //this.nums.sort() =>這樣也無法回到原陣列，因為 this.nums 指到 orgNums;
+          // orgNums此時已經被排序了，所以回不來
+        },
+      },
+    })
+
+  </script>
+</body>
+</html>

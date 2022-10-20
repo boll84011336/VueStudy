@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+  <title>雙向綁定</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="num in nums">{{num}}</li>
+    </ul>
+    <button @click="all">All</button>
+    <button @click="reverse">reverse</button>
+    <button @click="filter">Even</button>
+  </div>
+
+  <script>
+    const orgNums = [5,2,1,6,8]
+    
+    new Vue({
+      el:'#app',
+      data: {
+        nums: orgNums,
+      },
+      methods: {
+        all(){
+          this.nums = orgNums; //會等於外面的orgNums
+        },
+        reverse() {
+          this.nums.reverse()
+        },
+        filter() {
+          this.nums = orgNums.filter(elm => elm%2 ===0)
+          //filter 不會改原陣列，記得要指回去
+          //他只會把true的東西 寫到一個新的陣列
+          //拿orgNums 去做篩選 篩完會有一個新陣列，再把這新陣列指到this.nums
+        },
+      },
+    })
+
+  </script>
+</body>
+</html>
