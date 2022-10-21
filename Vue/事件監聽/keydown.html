@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+  
+  <title>雙向綁定</title>
+</head>
+<body>
+  <!-- 偵聽事件的時候，如果給的是函式，那函式就會吃一個參數event -->
+  <!-- @keydown="keydown" 前面是事件監聽的方法，後面是自定義函式 -->
+  <div id="app"> 
+    <div style="float:left;margin-right: 10px;">
+      Todo List <br>
+      <input v-model="input" @keydown="keydown"  />
+      <ul>
+        <li v-for="item in list">{{item}}</li>
+      </ul>
+    </div>
+    <div>Todo List2 <br>
+    修飾符: <input v-model="text" @keydown.enter="enter"  /> <!--這邊的@keydown.enter 是內建提供的方法，等於後面是自定義的函示名稱-->
+    <ul>
+      <li v-for="item in textlist">{{item}}</li>
+    </ul>
+  </div>
+   
+  </div>
+ 
+  <!-- 這邊的input是指輸入的內容(名稱自定義)，上面的input是綁定的data -->
+  <script>
+    new Vue({
+      el:'#app',
+      data: {
+       list: [],
+       input: '',
+       text: '',
+       textlist: []
+      },
+      methods: {
+        enter() {
+          this.textlist.push(this.text);
+          this.text = '';
+        },
+        keydown(e) {
+          if(e.keyCode === 13) {
+            this.list.push(this.input);
+            this.input = '';
+          }
+        },
+      }
+    })
+
+  </script>
+</body>
+</html>
