@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+  <title>Props傳遞-單向數據流</title>
+</head>
+
+<body>
+  <!-- HTML 結構 -->
+  <div id="app">
+    <h1>{{count}}</h1>
+    <button @click="count+=1">+</button>
+
+    <counter :start="count"> </counter>
+
+  </div>
+
+ 
+  <script>
+    // Vue.component('counter', {
+    //   props: ['start'],
+    //   data(){
+    //     return {
+    //       count:this.start,
+    //     }
+    //   },
+    //   template: `
+    //     <div>
+    //       <h1>{{count}}</h1> 
+    //       <button @click="count+=1">+1</button> 
+    //     </div>
+    //   `,
+    // });
+
+
+    new Vue({
+      el: '#app',
+      data: {
+        count:10,
+      },
+      components: {
+        counter: {
+          props: ['start'],
+          data(){
+            return {
+              count:this.start, //這邊的count初始是拿上面的10 只是它初始的值是自己的start
+            };
+          },
+          template: `
+            <div>
+              <h1>{{count}}</h1> 
+              <button @click="count+=1">+</button> 
+            </div>
+          `,
+        }
+      }
+    })
+
+
+  </script>
+</body>
+
+</html>

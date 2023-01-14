@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+  <title>Props傳遞</title>
+</head>
+<!-- 可以理解成在HTML裡面定義一個 example 屬性給template使用，如果要綁定data資料要記得用v-bind :example="data裡面的名稱，這邊叫text" -->
+<body>
+  <!-- HTML 結構 -->
+  <div id="app">
+    <post v-for="item in posts" :example="item.text" :ans="item.author"></post> 
+    <!--這邊用for去顯示posts裡面的資料，把陣列裡每一筆資料都用post的方式渲染
+       然後:example是動態綁定，是props的屬性，
+       item是綁定data裡 posts的值-->
+
+       <!-- 語法: v-for = "自訂義的名稱 in data裡面的arr名稱" :要綁定的component名稱 = 自訂義名稱.裏頭的屬性 -->
+       <!-- <post v-for = "item in posts" :example="item.text" :ans="item.author"></post>  -->
+   
+  </div>
+
+  <!-- component裡面有一個叫post的組件，裡面有兩個屬性一個props、template -->
+  <script>
+    // Vue實例是上層，他會反應在HTML上，所以上一章說HTML是上層
+    new Vue({
+      el: '#app',
+      data: {
+        posts:[
+          {text:'hello', author:'John'},
+          {text:'world', author:'Jack'},
+        ],
+      },
+      components: {
+        post: {
+          props: ['example', 'ans'],
+          template: '<div>{{example}} : {{ans}}</div>'
+        }
+      }
+    })
+
+
+  </script>
+</body>
+
+</html>

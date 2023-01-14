@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+  <title>Props傳遞</title>
+</head>
+
+
+<body>
+  <!-- HTML 結構 -->
+  <!-- HTML是上層 -->
+  <!-- props是上層傳下層 -->
+  <!-- 宣告 component 並使用message這個props傳遞給my-component，script裡面的template使用 上傳下 message="Hello" 雙引號裡面可以是字串也可以是data裡的東西 但要記得vbind-->
+  <div id="app">
+    <my-component message="Hello"></my-component>
+    <my-component message="123" test="456"></my-component>
+    <my-component my-message="HI"></my-component>
+
+  </div>
+
+  <!-- HTML模板裡面 props命名及組件命名不能用駝峰式，{ myMessage => 要寫成my-message } 這是規定
+  component可以 template裡面也可以 -->
+  
+  <script>
+    // 宣告一個組件my-component HTML可以用這個component，HTML要顯示東西就用props綁定
+    Vue.component('my-component', {
+      props: ['message','test','myMessage'],
+      template: `
+      <div>
+        <h1>{{message}}</h1>
+        <h2>{{message}}{{test}}</h2>
+        <h3>{{myMessage}}</h3>
+      </div>
+      `,
+    });
+
+    new Vue({
+      el: '#app',
+    })
+
+  </script>
+  <!-- 如果要把Props這個屬性，給組件裡的template使用或是data實例裡及method使用。 (也就是上層傳過來的這個Hello 如果要給下面vue使用)
+  第一步要先:宣告這個組件要用到這個props，陣列包字串，字串來宣告我這個組件用到多少的props 例如:  props: ['message', 'test'],
+
+  整個流程是，組件名稱先宣告好，template定義好，再來寫template裡面要顯示的東西 
+  掛在上層HTML上，如果要用到props再去定義好的組件裡面掛props屬性。 -->
+</body>
+
+</html>

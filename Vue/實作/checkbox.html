@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <title>多選框</title>
+  </head>
+  <body>
+    <div id="app">
+      <form action="#">
+        <label>單選框</label>
+        <input type="radio" id="male" name="gender" value="male" />
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" />
+        <label for="male">Female</label>
+        <input type="radio" id="other" name="gender" value="other" />
+        <label for="female">other</label>
+        <br />
+        <input type="checkbox" value="1" v-model="select" name="fruit" />蘋果
+        <input type="checkbox" value="2" v-model="select" name="fruit" />水梨
+        <input type="checkbox" value="3" v-model="select" name="fruit" />橘子
+        <br />
+        {{select}}
+        <input class="log-in" type="submit" value="送出" />
+      </form>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          select: [],
+          url: "",
+          obj: {},
+        },
+        mounted() {
+          this.test();
+        },
+        methods: {
+          test() {
+            //先取得網址字串，假設此頁網址為「http://127.0.0.1:5501/checkbox.html?gender=male&fruit=2&fruit=3#」
+            let url = location.href;
+            let myUrl = new URL(url);
+            let str = myUrl.searchParams.toString(); // URLSearchParams {} gender=male&fruit=2&fruit=3
+
+            console.log("取得的網址", str);
+
+            let params = myUrl.searchParams; // URLSearchParams {}  myUrl.searchParams是解析的物件
+            //for of => value
+            for (let pair of params.entries()) {
+              console.log(`key: ${pair[0]}, value: ${pair[1]}`);
+              this.obj[pair[0]] = pair[1];
+            }
+            console.log("取得的網址物件", this.obj);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

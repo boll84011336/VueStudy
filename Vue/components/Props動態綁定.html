@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+  <title>Props傳遞</title>
+</head>
+<!-- 
+可以理解成在HTML裡面定義一個 example 屬性給template使用，如果要綁定data資料要記得用v-bind :example="data裡面的名稱，這邊叫text" -->
+<body>
+  <!-- HTML 結構 -->
+  <div id="app">
+    <post example="a"></post> <!--如果沒有用v-bind 就會是"a"這個字串-->
+    <post :example="text"></post> <!-- 這邊是data的資料 text動態綁定 而不是純字串了 -->
+  </div>
+
+  <!-- component裡面有一個叫post的組件，裡面有兩個屬性一個props、template -->
+  <script>
+    // Vue實例是上層，他會反應在HTML上，所以上一章說HTML是上層
+    new Vue({
+      el: '#app',
+      data: {
+        text: 'hello'
+      },
+      components: {
+        post: {
+          props: ['example'],
+          template: '<div>{{example}}</div>'
+        }
+      }
+    })
+
+
+  </script>
+</body>
+
+</html>
