@@ -22,6 +22,7 @@
 
  
   <script>
+    //這邊是一個寫法 下面也是另一個寫法
     // Vue.component('counter', {
     //   props: ['start'],
     //   data(){
@@ -37,7 +38,9 @@
     //   `,
     // });
 
-
+    // 補充: Validator 是建立在組件建立之前，所以沒有this.XXX this.datta this.myMethod
+    
+    //12-3 單向數據流
     new Vue({
       el: '#app',
       data: {
