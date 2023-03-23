@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+  <title>components解析</title>
+</head>
+<body>
+ 
+  <div id="app">
+   <todo-list></todo-list>
+  </div>
+
+  <script>
+    // 這邊的data必須是func並且return，因為要讓每個組件能重複使用
+    Vue.component('todo-item', {
+      props:['label','id'],
+      template: `
+      <div>
+        <li>{{label}}</li> <button @click="btnClick">刪除</button>
+      </div>
+        
+      `,
+      methods: {
+        btnClick() {
+          this.$emit('delete', this.id);
+        },
+      },
+    });
+
+    Vue.component('todo-input', {
+      data(){
+        return {
+          text: '',
+        };
+      },
+      methods: {
+        submit() {
+          this.$emit('input', this.text);
+        },
+      },
+      template: `
+        <form @submit.prevent="submit">
+            <input type="text" v-model="text"/>
+            <button>新增</button>
+        </form>
+      `
+    });
+
+    // todo-list 上層這個組件 如何把todo 傳給todo-item 
+    // 利用props 上傳下 todo-list就可以把label 傳給 (todo-item)
+    // todo-item 就可以在li裡面，宣告這個props，並且使用這個props
+    // props 是一個陣列，裡面可以宣告多個
+    Vue.component('todo-list', {
+      data(){
+        return {
+          todos: [],
+        };
+      },
+      methods: {
+        addTodo(text) {
+          this.todos.push(text);
+        },
+        handDelete(index) {
+          this.todos.splice(index);
+        }
+      },
+      template: `
+      <div>
+        <todo-input @input="addTodo"></todo-input>
+        <ul>
+            <todo-item v-for="(todo, index) in todos" :id=index :label=todo 
+            @delete=handDelete>
+            </todo-item>
+        </ul>
+      </div>
+      `     
+    });
+  
+    // todo-input 下傳上 todo-list。
+    // 要把text傳回給上層的todo-list 可以利用emit
+
+    // 刪除功能 把id 用props的方式傳給todoitem
+    // 再todoitem這個components再用emit發出事件 
+    /*
+      1.先把click事件寫好 @click="btnClick" 
+      2. 然後將btnClick 寫進methods裏頭 定義emit (要傳給上層的) 
+        btnClick() {
+          this.$emit('delete', this.id);
+        },
+      3.上層接收 傳來的 'delete'事件
+        @delete=handDelete
+        handDelete再寫一個刪除的動作: handDelete(index) {
+          this.todos.splice(index);
+        }
+    */ 
+
+    new Vue({
+      el:'#app',
+    })
+    
+  </script>
+</body>
+</html>
